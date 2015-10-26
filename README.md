@@ -12,11 +12,18 @@ npm install -g lpinca/customer-import
 
 ## Usage
 
-```bash
-customer-import [<file>]
+```
+customer-import [options] [<path>]
 ```
 
-## Examples
+### Options
+
+```
+-c, --concurrency How many customers should be imported in parallel (50)
+-p, --path        The path used the customers (customers.*)
+```
+
+### Examples
 
 ```bash
 customer-import customers.json

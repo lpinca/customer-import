@@ -6,6 +6,7 @@ var Loader = require('./loader')
   , meow = require('meow')
   , path = require('path')
   , fs = require('fs')
+  , concurrency
   , loader
   , stream
   , file;
@@ -14,14 +15,24 @@ require('./nock.js');
 
 var cli = meow([
   'Usage',
-  '  $ customer-import [<file>]',
+  '  $ customer-import [options] [<path>]',
+  '',
+  'Options',
+  '  -c, --concurrency How many customers should be imported in parallel (50)',
+  '  -p, --path        The path used the customers (customers.*)',
   '',
   'Examples',
   '  $ customer-import customers.json',
   '  $ customer-import < customers.json',
   '  $ cat customers.json | customer-import'
-]);
+], {
+  alias: {
+    c: 'concurrency',
+    p: 'path'
+  }
+});
 
+concurrency = cli.flags.concurrency;
 file = cli.input[0];
 
 if (!file) {
@@ -35,12 +46,22 @@ if (!file) {
   try {
     if (!fs.statSync(file).isFile()) throw new Error('Not a file');
   } catch (e) {
-    console.error('%s does not exists or is not a file', file);
+    console.error('customer-import: cannot access %s', file);
     process.exit(1);
   }
 
   stream = fs.createReadStream(file);
 }
 
-loader = new Loader({ stream: stream });
+if (concurrency && typeof concurrency !== 'number') {
+  console.error('customer-import: concurrency must be a numeric value');
+  process.exit(1);
+}
+
+loader = new Loader({
+  concurrency: cli.flags.concurrency,
+  path: cli.flags.path,
+  stream: stream
+});
+
 loader.start();
