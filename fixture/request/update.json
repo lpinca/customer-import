@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "actions": [
+    {
+      "action": "addAddress",
+      "address": {
+        "id": "FjAJrc2C",
+        "country": "NL"
+      }
+    },
+    {
+      "action": "setCustomerNumber",
+      "customerNumber": "123456"
+    },
+    {
+      "action": "changeName",
+      "firstName": "foo",
+      "lastName": "bar",
+      "middleName": "baz"
+    },
+    {
+      "action": "setDefaultShippingAddress",
+      "addressId": "FjAJrc2C"
+    }
+  ]
+}
