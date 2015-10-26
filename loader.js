@@ -1,6 +1,6 @@
 'use strict';
 
-var JSONstream = require('JSONstream')
+var JSONStream = require('JSONStream')
   , Client = require('./client')
   , worker = require('./worker')
   , async = require('async');
@@ -13,7 +13,7 @@ var JSONstream = require('JSONstream')
  * @param {Object} options Configuration options
  */
 function Loader(options) {
-  this.parse = JSONstream.parse(options.path || 'customers.*');
+  this.parse = JSONStream.parse(options.path || 'customers.*');
   this.concurrency = options.concurrency || 50;
   this.queue = async.queue(worker.bind(this), this.concurrency);
   this.client = new Client(options.client);
