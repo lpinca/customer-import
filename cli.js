@@ -14,12 +14,12 @@ require('./nock.js');
 
 var cli = meow([
   'Usage',
-  '  $ import [<file>]',
+  '  $ customer-import [<file>]',
   '',
   'Examples',
-  '  $ import customers.json',
-  '  $ import < customers.json',
-  '  $ cat customers.json | import'
+  '  $ customer-import customers.json',
+  '  $ customer-import < customers.json',
+  '  $ cat customers.json | customer-import'
 ]);
 
 file = cli.input[0];
