@@ -11,7 +11,8 @@ var buildActions = require('build-actions');
  */
 function worker(data, next) {
   var email = encodeURIComponent('email="' + data.email + '"')
-    , client = this.client;
+    , client = this.client
+    , loader = this;
 
   //
   // For the same of simplicity assume that the `email` field is good enough
@@ -35,6 +36,7 @@ function worker(data, next) {
           return next(err || new Error(body.message));
         }
 
+        loader.created++;
         next();
       });
 
@@ -56,6 +58,7 @@ function worker(data, next) {
         return next(err || new Error(body.message));
       }
 
+      loader.updated++;
       next();
     });
   });

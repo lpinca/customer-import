@@ -20,6 +20,8 @@ function Loader(options) {
   this.stream = options.stream;
 
   this.endEmitted = false;
+  this.created = 0;
+  this.updated = 0;
 
   this.initialize();
 }
@@ -43,6 +45,9 @@ Loader.prototype.initialize = function initialize() {
   this.queue.saturated = function saturated() {
     loader.parse.pause();
   };
+  this.queue.drain = function drain() {
+    if (loader.endEmitted) process.stdout.write('\n');
+  };
 
   return this;
 };
@@ -56,6 +61,9 @@ Loader.prototype.initialize = function initialize() {
  */
 Loader.prototype.taskComplete = function taskComplete(err) {
   if (err) console.error(err);
+
+  process.stdout.write('customer-import: created ' + this.created);
+  process.stdout.write(', updated ' + this.updated + '\r');
 
   if (!this.queue.length() && !this.endEmitted) {
     this.parse.resume();
