@@ -31,6 +31,11 @@ customer-import < customers.json
 cat customers.json | customer-import
 ```
 
+## TODO
+
+- [ ] Better error handling
+- [ ] Tests
+
 ## License
 
 [MIT](LICENSE)
