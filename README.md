@@ -20,7 +20,7 @@ customer-import [options] [<path>]
 
 ```
 -c, --concurrency How many customers should be imported in parallel (50)
--p, --path        The path used the customers (customers.*)
+-p, --path        The path used to match the customers (customers.*)
 ```
 
 ### Examples
