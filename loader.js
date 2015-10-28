@@ -14,7 +14,7 @@ var JSONStream = require('JSONStream')
  */
 function Loader(options) {
   this.parse = JSONStream.parse(options.path || 'customers.*');
-  this.concurrency = options.concurrency || 50;
+  this.concurrency = options.concurrency || 20;
   this.queue = async.queue(worker.bind(this), this.concurrency);
   this.client = new Client(options.client);
   this.stream = options.stream;

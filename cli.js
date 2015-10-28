@@ -18,7 +18,7 @@ var cli = meow([
   '  $ customer-import [options] [<path>]',
   '',
   'Options',
-  '  -c, --concurrency How many customers should be imported in parallel (50)',
+  '  -c, --concurrency How many customers should be imported in parallel (20)',
   '  -p, --path        The path used to match the customers (customers.*)',
   '',
   'Examples',
