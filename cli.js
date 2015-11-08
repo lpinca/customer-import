@@ -11,8 +11,6 @@ var Loader = require('./loader')
   , stream
   , file;
 
-require('./nock.js');
-
 var cli = meow([
   'Usage',
   '  $ customer-import [options] [<path>]',

@@ -1,0 +1,15 @@
+{
+  "customer": {
+    "type": "Customer",
+    "id": "2f4c074a-a54c-40f1-a83e-9285458ddc89",
+    "version": 1,
+    "email": "baz.qux@domain.com",
+    "firstName": "baz",
+    "lastName": "qux",
+    "password": "/dabNWMy4PR83nqeRIEJnzjBGH6DoL1Z2ItlsYD8vwY=$sJaq9X+7ctG3ndg6AzT2RMgG8sZsAv6YGc6LEE2OdGQ=",
+    "addresses": [],
+    "isEmailVerified": false,
+    "createdAt": "2015-11-08T08:46:48.490Z",
+    "lastModifiedAt": "2015-11-08T08:46:48.490Z"
+  }
+}

@@ -13,7 +13,7 @@ function Client(options) {
   options || (options = {});
 
   this.protocol = options.protocol || 'http:';
-  this.host = options.host || 'api.sphere.io';
+  this.host = options.host || 'localhost:3000';
   this.uri = this.protocol + '//' + this.host;
 }
 

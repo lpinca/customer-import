@@ -1,11 +1,10 @@
 {
-  "version": 1,
+  "version": 2,
   "actions": [
     {
       "action": "addAddress",
       "address": {
-        "id": "FjAJrc2C",
-        "country": "NL"
+        "country": "IT"
       }
     },
     {

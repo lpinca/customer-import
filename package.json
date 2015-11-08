@@ -16,12 +16,15 @@
     "async": "^1.4.2",
     "build-actions": "^1.0.1",
     "meow": "^3.4.2",
-    "nock": "^2.15.0",
     "request": "^2.65.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "body-parser": "^1.14.1",
+    "express": "^4.13.3",
+    "mocha": "^2.3.3"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "author": "Luigi Pinca",
   "license": "MIT"

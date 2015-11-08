@@ -46,7 +46,13 @@ Loader.prototype.initialize = function initialize() {
     loader.parse.pause();
   };
   this.queue.drain = function drain() {
-    if (loader.endEmitted) process.stdout.write('\n');
+    if (loader.endEmitted) {
+      console.log(
+        'customer-import: created %d, updated %d',
+        loader.created,
+        loader.updated
+      );
+    }
   };
 
   return this;
@@ -60,14 +66,13 @@ Loader.prototype.initialize = function initialize() {
  * @return {Loader} `this`
  */
 Loader.prototype.taskComplete = function taskComplete(err) {
-  if (err) console.error(err);
-
-  process.stdout.write('customer-import: created ' + this.created);
-  process.stdout.write(', updated ' + this.updated + '\r');
+  if (err) console.error(err.message);
 
   if (!this.queue.length() && !this.endEmitted) {
     this.parse.resume();
   }
+
+  return this;
 };
 
 /**
