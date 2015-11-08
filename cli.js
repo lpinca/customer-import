@@ -2,7 +2,8 @@
 
 'use strict';
 
-var Loader = require('./loader')
+var pathIsAbsolute = require('path-is-absolute')
+  , Loader = require('./loader')
   , meow = require('meow')
   , path = require('path')
   , fs = require('fs')
@@ -39,7 +40,7 @@ if (!file) {
   //
   // Build the path and check if the file exists.
   //
-  if (!path.isAbsolute(file)) file = path.join(process.cwd(), file);
+  if (!pathIsAbsolute(file)) file = path.join(process.cwd(), file);
 
   try {
     if (!fs.statSync(file).isFile()) throw new Error('Not a file');
