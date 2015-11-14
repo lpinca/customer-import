@@ -15,7 +15,7 @@ npm install -g lpinca/customer-import
 ## Usage
 
 ```
-$ customer-import [options] [<path>]
+$ customer-import [options] [<file>]
 
 Options
   -c, --concurrency How many customers should be imported in parallel (20)
